@@ -1,0 +1,5 @@
+.gradient {
+    background-repeat: repeat-x;
+    background-image: linear-gradient(180deg,#2a3c74,#0d1333 20%);
+    min-height: 150vh;
+}

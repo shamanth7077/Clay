@@ -19,6 +19,11 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css",         
+        "../src/assets/styles/bootstrap/css/bootstrap.min.css",
+        "../src/assets/styles/bootstrap/css/bootstrap-theme.min.css",
+        "../css/fonts/font-awesome/css/font-awesome.min.css",
         "styles.css"
       ],
       "scripts": [],
@@ -51,7 +56,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   }
 }

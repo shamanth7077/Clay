@@ -1,0 +1,19 @@
+<section class="route-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <h1 class="purple max-width-440">Perform Operations:</h1>
+                <p-dataTable [value]="doorsList">
+                    <p-column field="id" header="ID"></p-column>
+                    <p-column field="name" header="DOOR NAME"></p-column>
+                    <p-column field="door" header="DOORS STATUS"  [style]="{'text-align':'center'}">
+                        <ng-template let-col let-door="rowData" pTemplate="body">
+                                <p-toggleButton onLabel="Opened" offLabel="Closed" (onChange)="handleDoorStatusChange($event, door['id'], door['name'])"
+                                [(ngModel)]="doorStatus[door['id']]" onIcon="fa-unlock" offIcon="fa-lock"></p-toggleButton>
+                        </ng-template>
+                    </p-column>
+                </p-dataTable>
+            </div>
+        </div>
+    </div>
+</section>

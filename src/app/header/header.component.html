@@ -1,0 +1,21 @@
+<header>
+    <div class="header-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-lg-2">
+                    <div class="clay-logo"> <img class="logo" src="assets/img/logo.png"/></div>
+                </div>
+                <div class="col-md-5 col-lg-5"></div>
+                <div class="col-md-5 col-lg-5">
+                    <ul class="nav">        
+                        <li *ngIf="selectedUser.name == 'admin'" routerLink="/users" routerLinkActive="active">Administration</li>
+                        <li routerLink="/doors" routerLinkActive="active">Doors</li>
+                        <li routerLink="/events" routerLinkActive="active">Events</li>  
+                        <li><p-dropdown [options]="usersList" [(ngModel)]="selectedUser" (onChange)="updateCurrentUser($event.value)"></p-dropdown></li>      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<p-growl [(value)]="messages" [immutable]= "false" [life]="3000"></p-growl>

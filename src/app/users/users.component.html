@@ -1,0 +1,81 @@
+<section class="route-content">
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <h1 class="purple max-width-440">Add Doors:</h1>
+                    <p-dataTable [value]="doorsList" emptyMessage="No Doors Added">
+                        <p-column field="id" header="DOOR ID"></p-column>
+                        <p-column field="name" header="DOOR NAME"></p-column>
+                    </p-dataTable>
+                </div>
+            </div>
+        
+            <div class="row margin-top-50" *ngIf="addDoorEnabled == false">
+                    <div class="col-md-12 col-lg-12">
+                            <a class="btn btn-white save"  (click)="toggleNewDoorField()" [href]>Add Door</a>
+                    </div>
+            </div>
+            <div class="row  margin-top-50"  *ngIf="addDoorEnabled == true">
+                    <div class="col-md-6 col-lg-6">
+
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                            <div class="ui-inputgroup">
+                                    <span class="ui-inputgroup-addon"><i class="fa fa-warehouse"></i></span>
+                                    <input class="ui-inputgroup-addon-text" [(ngModel)]="newDoor" type="text" pInputText placeholder="New Door">         
+                            </div>
+                    </div>
+                    <div class="col-md-1 col-lg-1">
+                            <a class="btn btn-white save"  (click)="toggleNewDoorField()" [href]>Cancel</a>
+                    </div>
+                    <div class="col-md-1 col-lg-1"> 
+                            <a class="btn btn-white save"  (click)="addNewDoor()" [href]>Save</a>
+                    </div>
+
+            </div>
+        </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <h1 class="purple max-width-440">Add Users:</h1>
+                <p-dataTable [value]="usersList" emptyMessage="No Users Added">
+                    <p-column field="id" header="USER ID"></p-column>
+                    <p-column field="name" header="NAME"></p-column>
+                    <p-column field="door" header="DOORS ACCESS">
+                            <ng-template let-col let-user="rowData" pTemplate="body">
+                                <p-multiSelect [options]="doorsList" maxSelectedLabels="20"  [(ngModel)]="selectedDoors[user['id']]" optionLabel="name" (onChange)="updateUserAccess(user['id'], user['name'])" [style]="{width:'100%'}"></p-multiSelect>
+                            </ng-template>
+                    </p-column>
+                </p-dataTable>
+            </div>
+        </div>
+    
+        <div class="row margin-top-50" *ngIf="addUserEnabled == false">
+                <div class="col-md-12 col-lg-12">
+                        <a class="btn btn-white save"  (click)="toggleNewUserField()" [href]>Add User</a>
+                </div>
+        </div>
+        <div class="row  margin-top-50"  *ngIf="addUserEnabled == true">
+                <div class="col-md-6 col-lg-6">
+
+                </div>
+                <div class="col-md-4 col-lg-4">
+                        <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                                <input class="ui-inputgroup-addon-text" [(ngModel)]="newUser" type="text" pInputText placeholder="New User">         
+                        </div>
+                </div>
+                <div class="col-md-1 col-lg-1">
+                        <a class="btn btn-white save"  (click)="toggleNewUserField()" [href]>Cancel</a>
+                </div>
+                <div class="col-md-1 col-lg-1"> 
+                        <a class="btn btn-white save"  (click)="addNewUser()" [href]>Save</a>
+                </div>
+
+        </div>
+    </div>
+    
+    
+</section>
