@@ -9,10 +9,10 @@ const appRoutes: Routes = [
   { path: 'doors', component: Doors},
   { path: 'events', component: Events},   
   { path: '',
-    redirectTo: '/doors',
+    redirectTo: '/users',
     pathMatch: 'full'
   },
-  { path: '**', component: Doors }
+  { path: '**', component: Users }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true});
