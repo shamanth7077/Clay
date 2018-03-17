@@ -36,8 +36,11 @@ export class Doors {
              { 
                 this.doorStatus[doorID] = false; 
              }, 0);
-
             
+            let currentUser = JSON.parse(localStorage.getItem('currentuser'));    
+            let doorEvents: any = JSON.parse(localStorage.getItem('doorevents')) || [];
+            doorEvents.push({id:doorEvents.length + 1 , user: currentUser.name , type: 'Declined', door: doorName})
+            localStorage.setItem('doorevents', JSON.stringify(doorEvents));
             this.sharedservice.onNewToasterAlert.emit({severity:'error', summary: ' You are not authorized to open this door ', detail: ''}); 
              
         }
