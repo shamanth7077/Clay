@@ -23,6 +23,12 @@ export class Users {
         this.usersList = usersDataList;
         let doorsDataList: Door[] = JSON.parse(localStorage.getItem('doorlist')) || [];
         this.doorsList = doorsDataList;
+
+        if(usersDataList.length > 0){
+            usersDataList.forEach(user => {
+                    this.selectedDoors[user.id] = user.door;
+            })
+        }
     }
 
     public updateUserAccess(id: any, name: string) {
@@ -74,7 +80,7 @@ export class Users {
                 this.doorsList = doorsDataList;
                 localStorage.setItem('doorsCount', (Number(doorsCount) + 1).toString());
                 localStorage.setItem('doorlist', JSON.stringify(this.doorsList));
-                this.newUser = '';
+                this.newDoor = '';
                 this.addDoorEnabled = false;
             }
             else{

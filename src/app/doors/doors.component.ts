@@ -48,7 +48,8 @@ export class Doors {
 
     public checkUserAuthorization(event, doorID, doorName){
         let usersDataList: User[] = JSON.parse(localStorage.getItem('userlist')) || [];
-        let currentUser: any = JSON.parse(localStorage.getItem('currentuser'));       
+        let currentUser: any = JSON.parse(localStorage.getItem('currentuser'));  
+        if(currentUser.id == 0){return true}     
         let itemIndex = usersDataList.findIndex(user => user.id == currentUser.id);
         let currentUserdoorAccess = usersDataList[itemIndex].door;
         let doorIndex = currentUserdoorAccess.findIndex(door => door.id == doorID);

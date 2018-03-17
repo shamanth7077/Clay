@@ -75,10 +75,12 @@ table {
 .ui-datatable.ui-widget  tbody > tr.ui-widget-content.ui-datatable-odd, .ui-datatable.ui-widget  tbody > tr.ui-datatable-even.ui-widget-content{
     background: transparent !important;
 }
-.ui-multiselect-panel .ui-widget, .ui-multiselect .ui-widget{
+.ui-multiselect-panel.ui-widget, .ui-multiselect.ui-widget{
     background: #FFF !important;
 }
-
+.ui-multiselect-panel .ui-chkbox.ui-widget{
+    background: inherit !important;
+}
 .ui-growl-message-error .ui-growl-title{
 	padding: 10px 0 0 5%;  
 }	
